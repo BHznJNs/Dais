@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Item, ItemContent, ItemTitle } from "@/components/ui/item";
+import { MinimalTiptapEditor } from "@/components/ui/minimal-tiptap";
 import { useWorkspaceStore } from "@/stores/workspace-store";
 import type { AgentBrief } from "@/types/agent";
 import type { WorkspaceCreate, WorkspaceRead } from "@/types/workspace";
@@ -196,6 +197,25 @@ export function WorkspaceEdit({ workspace, onConfirm }: WorkspaceEditProps) {
                   选择
                 </Button>
               </div>
+            </FieldItem>
+          )}
+        />
+
+        <Controller
+          name="workspace_background"
+          control={control}
+          render={({ field, fieldState }) => (
+            <FieldItem
+              title="工作区概况"
+              fieldState={fieldState}
+              className="mt-2"
+              orientation="vertical"
+            >
+              <MinimalTiptapEditor
+                {...field}
+                className="mt-2"
+                editorClassName="min-h-[8em]"
+              />
             </FieldItem>
           )}
         />

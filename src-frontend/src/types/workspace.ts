@@ -3,6 +3,7 @@ import type { AgentRead } from "./agent";
 export type WorkspaceBase = {
   name: string;
   directory: string;
+  workspace_background: string;
 };
 
 export type WorkspaceRead = WorkspaceBase & {

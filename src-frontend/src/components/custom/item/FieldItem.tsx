@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 export type FieldItemProps = {
   title: React.ReactNode;
   description?: React.ReactNode;
-  align?: "start" | "center" | "end";
   children: React.ReactNode;
   fieldState: ControllerFieldState;
   className?: string;
   titleClassName?: string;
   descriptionClassName?: string;
   contentClassName?: string;
+  align?: "start" | "center" | "end";
+  orientation?: "vertical" | "horizontal";
 };
 
 export function FieldItem({
@@ -24,6 +25,7 @@ export function FieldItem({
   descriptionClassName,
   contentClassName,
   align = "center",
+  orientation = "horizontal",
 }: FieldItemProps) {
   const alignClassName = {
     start: "items-start",
@@ -33,7 +35,11 @@ export function FieldItem({
   return (
     <Field
       className={cn(
-        "flex flex-row justify-between py-2 pr-1.5",
+        "flex justify-between py-2 pr-1.5",
+        {
+          "flex-col": orientation === "vertical",
+          "flex-row": orientation === "horizontal",
+        },
         className,
         alignClassName
       )}

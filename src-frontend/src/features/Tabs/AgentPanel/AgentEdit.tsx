@@ -153,7 +153,8 @@ export function AgentEdit({ agent, onConfirm }: AgentEditProps) {
             <FieldItem
               title="Agent 提示词"
               fieldState={fieldState}
-              className="mt-2 flex-col"
+              className="mt-2"
+              orientation="vertical"
             >
               <MinimalTiptapEditor
                 {...field}
